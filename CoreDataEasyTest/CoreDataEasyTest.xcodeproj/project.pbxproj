@@ -14,6 +14,7 @@
 		C9A500EB1F46C12D0000AA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9A500EA1F46C12D0000AA34 /* Assets.xcassets */; };
 		C9A500EE1F46C12D0000AA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9A500EC1F46C12D0000AA34 /* LaunchScreen.storyboard */; };
 		C9A500F71F46C2470000AA34 /* Company.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9A500F51F46C2470000AA34 /* Company.xcdatamodeld */; };
+		C9A501001F46C9550000AA34 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A500FF1F46C9550000AA34 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,11 @@
 		C9A500ED1F46C12D0000AA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9A500EF1F46C12D0000AA34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9A500F61F46C2470000AA34 /* Company.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Company.xcdatamodel; sourceTree = "<group>"; };
+		C9A500F81F46C5990000AA34 /* Employee+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Employee+CoreDataClass.h"; sourceTree = "<group>"; };
+		C9A500F91F46C5990000AA34 /* Employee+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataClass.m"; sourceTree = "<group>"; };
+		C9A500FA1F46C5990000AA34 /* Employee+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Employee+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C9A500FB1F46C5990000AA34 /* Employee+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C9A500FF1F46C9550000AA34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A501001F46C9550000AA34 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +51,13 @@
 		C9A500D21F46C12D0000AA34 = {
 			isa = PBXGroup;
 			children = (
+				C9A500F81F46C5990000AA34 /* Employee+CoreDataClass.h */,
+				C9A500F91F46C5990000AA34 /* Employee+CoreDataClass.m */,
+				C9A500FA1F46C5990000AA34 /* Employee+CoreDataProperties.h */,
+				C9A500FB1F46C5990000AA34 /* Employee+CoreDataProperties.m */,
 				C9A500DD1F46C12D0000AA34 /* CoreDataEasyTest */,
 				C9A500DC1F46C12D0000AA34 /* Products */,
+				C9A500FE1F46C9550000AA34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +92,14 @@
 				C9A500DF1F46C12D0000AA34 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9A500FE1F46C9550000AA34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9A500FF1F46C9550000AA34 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
