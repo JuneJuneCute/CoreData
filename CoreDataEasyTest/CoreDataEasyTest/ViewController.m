@@ -22,6 +22,11 @@
     //创建一个请求对象(填入要查询的表名 -- 实体类)
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
     
+    //过滤查询
+    //查找张三
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name=%@ AND height > %@",@"zhangsan",@(1.8)];
+    request.predicate = pre;
+    
     //读取信息
     NSError *error = nil;
     NSArray *emps = [self.context executeFetchRequest:request error:&error];
