@@ -16,6 +16,21 @@
 @end
 
 @implementation ViewController
+#pragma mark - 删除员工信息
+- (IBAction)deleteEmployee:(id)sender {
+    //删除zhangsan
+    //1.查找到zhangsan
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Employee"];
+    
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name=%@",@"zhangsan"];
+    request.predicate = pre;
+    
+    //2.删除zhangsan
+    
+    //3.用context同步下数据库
+    
+}
+
 
 #pragma mark - 读取员工信息
 - (IBAction)readEmployee:(id)sender {
@@ -24,8 +39,19 @@
     
     //过滤查询
     //查找张三
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name=%@ AND height > %@",@"zhangsan",@(1.8)];
-    request.predicate = pre;
+//    NSPredicate *pre = [NSPredicate predicateWithFormat:@"name=%@ AND height > %@",@"zhangsan",@(1.8)];
+//    request.predicate = pre;
+    
+    //排序 以身高进行升序
+//    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"height" ascending:NO];
+//    request.sortDescriptors = @[sort];
+    
+    //分页查询  总共23条数据 每页显示5条数据
+    //第三页数据
+    request.fetchLimit = 5;
+    request.fetchOffset = 10;
+    
+    
     
     //读取信息
     NSError *error = nil;
@@ -101,10 +127,26 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+          //创建员工
+    for (int i = 0; i < 10; i ++) {
+  
+        Employee *emp1 = [NSEntityDescription  insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:self.context];
+        //设置员工属性
+        emp1.name = [NSString stringWithFormat:@"wangwu %d",i];
+        emp1.age = 28 + i;
+        emp1.height = 2.10;
+        
+        //保存 -- 通过上下文操作
+        NSError *error = nil;
+        [self.context save:&error];
+        if (!error) {
+            NSLog(@"success");
+        }else {
+            NSLog(@"%@",error);
+        }
 
+    }
+}
 
 @end
